@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <h1>Hello! </h1>
+    <h2>Welcome to my website</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
+    <script>
+/*
+        if(localStorage.getItem("name") === null){
+            let name = prompt("Please, state your name:");
+            localStorage.setItem("name", name);
+        } 
+        let name = localStorage.name;
+        document.querySelector("h1").innerHTML = `Hello ${name}!`;
+*/
+        const Obj={};
+        Object.defineProperty(Obj, "name", {
+            value: "John",
+            writable: true,
+            get: function(){return this._name;},
+            set: function(value){this._name = value;}
+        });
+    </script>
+</html>

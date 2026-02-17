@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Esempio Manipolazione DOM</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; }
+        #box { 
+            padding: 20px; 
+            border: 2px solid #333; 
+            display: inline-block; 
+            transition: all 0.3s; 
+        }
+        .evidenziato { background-color: yellow; color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <h1 id="titolo">Testo Originale</h1>
+        <p>Clicca il bottone per modificare il DOM!</p>
+    </div>
+
+    <br><br>
+    
+    <button onclick="cambiaContenuto()">Cambia Testo</button>
+    <button onclick="aggiungiStile()">Cambia Stile</button>
+
+    <script>
+        // 1. Funzione per cambiare il contenuto testuale
+        function cambiaContenuto() {
+            // Selezioniamo l'elemento tramite il suo ID
+            const titolo = document.getElementById("titolo");
+            
+            // Modifichiamo la proprietà textContent del nodo
+            titolo.textContent = "DOM Manipolato con Successo! 🎉";
+        }
+
+        // 2. Funzione per modificare classi e stili
+        function aggiungiStile() {
+            const box = document.getElementById("box");
+            
+            // Possiamo aggiungere una classe CSS definita nello <style>
+            box.classList.toggle("evidenziato");
+            
+            // Oppure modificare lo stile inline direttamente
+            box.style.borderRadius = "20px";
+        }
+    </script>
+
+</body>
+</html>

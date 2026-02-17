@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VARIABLES AND FUNCTIONS</title>
+    </head>
+    <script>
+        let studentName= "Michela";
+        let age=24;
+        let isEnrolled= true;
+        console.log(studentName, typeof(studentName));
+        console.log(age, typeof(age));
+        console.log(isEnrolled, typeof(isEnrolled));
+    
+        function studentInfo(nome, età, course, isEnrolled){
+            if (isEnrolled){
+                 return `Student ${nome} is ${età} years old and is enrolled in ${course}.`;
+            } else {
+                return `Student ${nome} is not enrolled in any course.`;
+            }
+        }
+
+        console.log(studentInfo(studentName, age, "Web Tecnologies", true));
+        console.log(studentInfo(studentName, age));
+
+        //part 2
+        let movie = {
+            title: "Inception",
+            director : {
+                fistname: "Christopher",
+                lastname: "Nolan",
+                birthYear: 1970,
+                deathYear: null
+            },
+            year: 2010,
+            "is part of a saga": false,
+
+            describe(){
+                return `The movie ${this.title} was directed by ${this.director.fistname} ${this.director.lastname} and was released in ${this.year}.`;
+            },
+
+            Movie(title, director, year, isPartOfSaga){
+                this.title = title;
+                this.director = director;
+                this.year = year;
+                this.isPartOfSaga = isPartOfSaga;
+            }
+        }
+         console.log(movie.describe());
+        delete movie["is part of a saga"];
+         console.log(movie.describe());
+        movie2= new Movie("The Dark Knight", {fistname: "Christopher", lastname: "Nolan", birthYear: 1970, deathYear: null}, 2008, false);
+        console.log(movie2.describe());
+
+        let Trilogy = {
+            Trilogy(title, movie1, movie2, movie3){
+                this.title = title;
+                this.movie1 = movie1;
+                this.movie2 = movie2;
+                this.movie3 = movie3;
+            },
+        }
+
+        let thrilogy1 = new Trilogy("The Dark Knight Trilogy", movie, movie2, {title: "The Dark Knight Rises", director: {fistname: "Christopher", lastname: "Nolan", birthYear: 1970, deathYear: null}, year: 2012, isPartOfSaga: false});
+        console.log(thrilogy1);
+    </script>
+</html>
